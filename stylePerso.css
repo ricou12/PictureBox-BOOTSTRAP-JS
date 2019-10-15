@@ -9,19 +9,17 @@ h1 {
 }
 
 .vignette {
-
-    min-height: 100px;
+    min-height: 150px;
     cursor: pointer;
     transition: 0.5s;
 }
 
 .vignette:hover {
-    transform:scale(1.05);
+    filter: hue-rotate(120deg);
+    -webkit-filter:hue-rotate(120deg);
+    transform:scale(1.03);
 }
-
-/* .n1{
-
+#myImg{
+    max-height: 700px;
+    width:auto;
 }
-.n2{
-    overflow: hidden;
-} */

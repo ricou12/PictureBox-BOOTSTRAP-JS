@@ -52,6 +52,20 @@ var myDataBase = [{
         'dossier_photo': 'img/paris/',
         'files': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg'],
     },
+    {
+        'identifiant': 'harrisonSmith',
+        'titre': 'Le jardin botanique de Papeari (Tahiti)',
+        'commentaires': "<blockquote>Si Papeari est renommé pour ses fleurs et son jardin botanique, c’est en grande partie grâce à un américain, Harrison Willard Smith (1872 1947), passionné par la botanique, que les Tahitiens appelaient « le grand-père des arbres ».<br><br>L’américain Harrison Willard Smith arrive à Tahiti en 1919, à l’âge de 37 ans, où il savait d’une précédente visite, qu’il trouverait à Papeari un sol et un climat idéal pour créer le jardin tropical dont il rêvait. Il acheta, de 1920 à 1925, les propriétés sur lesquelles il devait créer le domaine de Motu-Ovini (l’îlot sauvage) de 137 hectares où il planta petit à petit des centaines de variétés de fleurs et d’arbres exotiques qu’il faisait venir à grands frais et avec bien des difficultés des régions tropicales d’Amérique, d’Asie et d’Afrique. Un grand nombre des arbres et des plantes de ce jardin botanique sont utilitaires et ont été introduits par Harrison Smith.</blockquote>",
+        'dossier_photo': 'img/HarrisonSmith/',
+        'files': ['1.JPG', '2.JPG', '3.JPG', '4.JPG', '5.JPG', '6.JPG', '7.JPG', '8.JPG', '9.JPG', '10.JPG', '11.JPG', '12.JPG', '13.JPG', '14.JPG', '15.JPG', '16.JPG', '17.JPG', '18.JPG', '19.JPG', '20.JPG'],
+    },
+    {
+        'identifiant': 'moorea',
+        'titre': 'Moorea',
+        'commentaires': "<blockquote>Située à 17 kilomètres à l'ouest-nord-ouest de Tahiti, Mo'orea en est séparée par un profond chenal dépassant par endroits les 1 500 mètres. De forme triangulaire, « l'île sœur » de Tahiti possède deux baies principales : la baie d'Ōpūnohu (ce nom vient des mots tahitiens 'ōpū : le ventre et nohu : le poisson-pierre) et la baie de Cook (du nom du célèbre navigateur James Cook).<br><br>Elle est entourée par une barrière de corail ouverte sur l'océan Pacifique en 12 passes. Le lagon est classé comme zone humide d'importance internationale au titre de la convention de Ramsar.<br><br>D'une superficie de 133,50 km2, elle compte plus de 16 000 habitants regroupés dans plusieurs villages, principalement sur le littoral : Te'avaro, Maharepa, Paopao, Papeto'ai, Ha'apiti, 'Āfareaitu, Ti'ai'a et Vai'are.<br><br>Elle compte 8 montagnes, en partant du point culminant de l'île : le mont Tohiea (1207 m), le mont Rōtui (899 m), Mou'a roa (880 m), Mou'a puta (830 m), le mont Tearai (770 m), le mont Tautuapae (769 m), le mont Fairurani (741 m) et le mont Matotea (714 m).<br><br>Mou'a puta, comme son nom l'indique (mou'a:montagne, puta: percée) a la curieuse particularité de présenter un large trou en son milieu. La légende raconte que c'est Pai1 qui, avec sa lance, a percé cette montagne. </blockquote>",
+        'dossier_photo': 'img/moorea/',
+        'files': ['1.JPG', '2.JPG', '3.JPG', '4.JPG', '5.JPG', '6.JPG', '7.JPG', '8.JPG', '9.JPG', '10.JPG', '11.JPG', '12.JPG', '13.JPG', '14.JPG', '15.JPG', '16.JPG', '17.JPG', '18.JPG', '19.JPG', '20.JPG', '21.JPG', '22.JPG'],
+    },
 ];
 
 /** ************************************************************************************************************
@@ -177,7 +191,7 @@ function setImgInternal(imagePath, titre, commentaires) {
         // AJOUTE LE TITRE
         newHTML = `<h3>${titre}</h3>`;
         // AFFICHE LA PHOTO
-        newHTML += `<img class="d-block w-100 shadow p-2 mb-3 bg-white rounded" src="${imagePath}" alt="" onclick="setImg();">`;
+        newHTML += `<div class="d-block w-100 d-flex flex-row flex-wrap justify-content-center"><img id="myImg" class="d-block mw-100 shadow p-2 mb-3 bg-white rounded" src="${imagePath}" alt="" onclick="fullSize();"></div>`;
         // AJOUTE LES COMMENTAIRES
         newHTML += `<p>${commentaires}</p>`;
         // Cree les balises

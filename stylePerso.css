@@ -2,7 +2,9 @@
     font-family: 'Open Sans Condensed', sans-serif;
     font-family: 'Poiret One', cursive;
 }
-
 #containerImg{
-    height:800px;
+    max-height: 700px;
+}
+.vignette{
+    min-height: 100px;
 }

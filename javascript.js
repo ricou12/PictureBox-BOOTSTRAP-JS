@@ -27,7 +27,7 @@
 var myDataBase = [{
         'identifiant': 'venise',
         'titre': 'Venise la « Cité des Eaux »',
-    'commentaires': "<blockquote>Venise est une ville portuaire du nord-est de l'Italie, sur les rives de la mer Adriatique. Elle s'étend sur un ensemble de 121 petites îles séparées par un réseau de canaux et reliées par 435 ponts. Située au large de la lagune vénète, entre les estuaires du Pô et du Piave, Venise est renommée pour cette particularité, ainsi que pour son architecture et son patrimoine culturel — elle et sa lagune sont inscrites au patrimoine mondial de l'UNESCO.<br><br>Venise est la capitale de la région de la Vénétie. En 2012, la commune compte 269 810 habitants, dont 58 666 intra-muros (Centro storico). 176 000 résident sur les rives (Terraferma), pour la plupart dans les frazioni de Mestre et Marghera, et les 31 000 habitants restants résident dans d'autres îles de la lagune. Avec Padoue et Trévise, Venise constitue l'aire métropolitaine Padoue-Trévise-Venise (PATREVE), une entité statistique de 1 600 000 habitants.<br><br>Fondée peu après 528, elle fut la capitale pendant onze siècles (697-1797) de la République de Venise. Durant le Moyen Âge et la Renaissance, la ville fut une grande puissance maritime, à l'origine de la Quatrième croisade et victorieuse lors de la bataille de Lépante en 1571 contre l'Empire ottoman. Grâce à ses liens avec l'Asie et le Proche-Orient, dont le marchand et explorateur Marco Polo fut l'initiateur, elle devint également l'une des principales places commerciales d'Europe, notamment de la soie, des céréales et des épices. Enfin, elle est un centre culturel majeur, du XIIIe à la fin du XVIIe siècle, dont les peintres de l’École vénitienne (dont Titien, Véronèse et le Tintoret), Carlo Goldoni et Antonio Vivaldi sont les principaux représentants.</blockquote> ",
+        'commentaires': "<blockquote>Venise (italien : Venezia /veˈnɛtʦja/, vénitien : Venexia /veˈnɛˑsja/) est une ville portuaire du nord-est de l'Italie, sur les rives de la mer Adriatique. Elle s'étend sur un ensemble de 121 petites îles séparées par un réseau de canaux et reliées par 435 ponts. Située au large de la lagune vénète, entre les estuaires du Pô et du Piave, Venise est renommée pour cette particularité, ainsi que pour son architecture et son patrimoine culturel — elle et sa lagune sont inscrites au patrimoine mondial de l'UNESCO.<br><br>Venise est la capitale de la région de la Vénétie. En 2012, la commune compte 269 810 habitants, dont 58 666 intra-muros (Centro storico). 176 000 résident sur les rives (Terraferma), pour la plupart dans les frazioni de Mestre et Marghera, et les 31 000 habitants restants résident dans d'autres îles de la lagune. Avec Padoue et Trévise, Venise constitue l'aire métropolitaine Padoue-Trévise-Venise (PATREVE), une entité statistique de 1 600 000 habitants.<br><br>Fondée peu après 528, elle fut la capitale pendant onze siècles (697-1797) de la République de Venise. Durant le Moyen Âge et la Renaissance, la ville fut une grande puissance maritime, à l'origine de la Quatrième croisade et victorieuse lors de la bataille de Lépante en 1571 contre l'Empire ottoman. Grâce à ses liens avec l'Asie et le Proche-Orient, dont le marchand et explorateur Marco Polo fut l'initiateur, elle devint également l'une des principales places commerciales d'Europe, notamment de la soie, des céréales et des épices. Enfin, elle est un centre culturel majeur, du XIIIe à la fin du XVIIe siècle, dont les peintres de l’École vénitienne (dont Titien, Véronèse et le Tintoret), Carlo Goldoni et Antonio Vivaldi sont les principaux représentants.</blockquote>",
         'dossier_photo': 'img/venise/',
         'files': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg', '15.jpg', '16.jpg'],
     },
@@ -81,7 +81,7 @@ setAlbum('venise');
 /** ***************************************************************************************
  *                                     CATALOGUE                        
  **************************************************************************************** */
-// EVENEMENT CLICK SUR LE BOUTON du catalogue l'évenement onclick nous renvoie sur cette procedure.
+// EVENEMENT CLICK SUR UN BOUTON DU CATALOGUE
 function infoCatalogue() {
     // Récupere l'ensemble des attributs de la balise pour les stocker dans une variable objet.
     var ProprietesBalise = event.target;
@@ -100,8 +100,8 @@ function setAlbum(albumName) {
         // CREER LES VIGNETTES
         const newHTML = createVignettesNewHTML(album);
         updateVignettesContainerHTML(newHTML);
-        
-        // CREER 
+
+        // CREER LES BALISES DANS LE CONTENEUR (BOX TITRE, PHOTO, COMMENTAIRES)
         setImgInternal(album.dossier_photo + album.files[0], album.titre, album.commentaires);
     }
 }
@@ -127,22 +127,22 @@ function createVignettesNewHTML(album) {
     let newHTML = "";
     // Parcours le sous-tableau contenant les noms de fichiers.
     for (const fileName of album.files) {
+        const idx = myDataBase.indexOf(album);
         // Appel la fonction qui genere chaque balise html.
-        newHTML += createVignetteHTML(album.dossier_photo, fileName,album.titre,album.commentaires);
+        newHTML += createVignetteHTML(album.dossier_photo, fileName, album.titre, album.commentaires, idx);
     }
     return newHTML;
 }
 
 // Génére une balise html
-function createVignetteHTML(dossierPhoto, fileName,titre,commentaires) {
+function createVignetteHTML(dossierPhoto, fileName, titre, commentaires, albumIndex = -1) {
     //methode n°1
     // return '<img class="shadow p-1 mb-2 img-thumbnail rounded-pill" src="' + dossierPhoto + fileName + '" alt="" onclick="affichImg();">';
     //methode n°2
-    return `<img class="shadow p-1 mb-1 img-thumbnail" 
+    return `<img class="vignette flex-md-shrink-0 shadow p-1 mb-1 img-thumbnail" 
                  src="${dossierPhoto}${fileName}" 
                  alt=""
-                 titre="${titre}"
-                 commentaires="${commentaires}"
+                 data-album-idx="${albumIndex}"
                  onclick="setImg();">`;
 }
 
@@ -154,21 +154,28 @@ function updateVignettesContainerHTML(html) {
 /** ********************************************************************************        
  *            LE TITRE, LA PHOTO GRAND FORMAT, ET LES COMMENTAIRES
  ********************************************************************************* */
-// EVENEMENT CLICK SUR LA VIGNETTE
+// EVENEMENT CLICK SUR UNE DES VIGNETTES
 function setImg() {
     var $img = event.target;
     var imagePath = $img.getAttribute("src");
-    var titre = $img.getAttribute("titre");
-    var commentaires = $img.getAttribute("commentaires")
-    setImgInternal(imagePath,titre,commentaires);
+    var titre = $img.getAttribute("data-titre");
+    // RECUPERE L' INDEX DU TABLEAU 
+    var albumIndex = $img.getAttribute("data-album-idx");
+
+    if(albumIndex && (new Number(albumIndex) > -1)){
+        var titre =  myDataBase[albumIndex].titre;
+        var commentaires = myDataBase[albumIndex].commentaires;
+        // CALL
+        setImgInternal(imagePath, titre, commentaires);
+    }
 }
 
+// GENERE LES BALISES DANS LE CONTENEUR PARENT.
 function setImgInternal(imagePath, titre, commentaires) {
     if (imagePath != null) {
-        
         let newHTML = "";
         // AJOUTE LE TITRE
-        newHTML = `<p>${titre}</p>`;
+        newHTML = `<h3>${titre}</h3>`;
         // AFFICHE LA PHOTO
         newHTML += `<img class="d-block w-100 shadow p-2 mb-3 bg-white rounded" src="${imagePath}" alt="" onclick="setImg();">`;
         // AJOUTE LES COMMENTAIRES

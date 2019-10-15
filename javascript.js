@@ -143,7 +143,7 @@ function createVignetteHTML(dossierPhoto, fileName, titre, commentaires, albumIn
                  src="${dossierPhoto}${fileName}" 
                  alt=""
                  data-album-idx="${albumIndex}"
-                 onclick="setImg();">`;
+                 onmouseover="setImg();">`;
 }
 
 // mise à jour de la balise.
@@ -183,4 +183,5 @@ function setImgInternal(imagePath, titre, commentaires) {
         // Cree les balises
         $boxZoom.innerHTML = newHTML;
     }
+    
 }

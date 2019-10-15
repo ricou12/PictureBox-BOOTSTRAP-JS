@@ -16,7 +16,6 @@ body {
 }
 
 .fly p {
-    position: absolute;
     font-weight: bold;
     z-index: 1;
     top: 90%;

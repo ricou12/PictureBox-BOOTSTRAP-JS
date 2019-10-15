@@ -1,10 +1,27 @@
-.myfont h2,h1{
+.myfont h2,
+h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-family: 'Poiret One', cursive;
 }
-#containerImg{
+
+#containerImg {
     max-height: 800px;
 }
-.vignette{
+
+.vignette {
+
     min-height: 100px;
+    cursor: pointer;
+    transition: 0.5s;
 }
+
+.vignette:hover {
+    transform:scale(1.05);
+}
+
+/* .n1{
+
+}
+.n2{
+    overflow: hidden;
+} */

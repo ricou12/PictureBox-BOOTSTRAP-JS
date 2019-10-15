@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="tools/bootstrap.min.css">
     <link rel="stylesheet" href="stylePerso.css" type="text/css">
     <link rel="stylesheet" href="animate.css" type="text/css">
-    <title>Exercice</title>
+    <title>Picture Box</title>
 </head>
 <!-- style="border:1px solid red;" -->
 
@@ -33,13 +33,13 @@
             <!-- BOX CATALOGUE -->
             <section class="col-12 mt-4 text-center d-flex justify-content-end flex-row">
                 <button identifiant="venise" type="button" class="btn btn-outline-primary mr-3 btn-md"
-                    onclick="infoCatalogue();">Venise</button>
+                    onmouseover="infoCatalogue();">Venise</button>
                 <button identifiant="montreal" type="button" class="btn btn-outline-primary mr-3 btn-md"
-                    onclick="infoCatalogue();">Montreal</button>
+                    onmouseover="infoCatalogue();">Montreal</button>
                 <button identifiant="munich" type="button" class="btn btn-outline-primary mr-3 btn-md"
-                    onclick="infoCatalogue();">Munich</button>
+                    onmouseover="infoCatalogue();">Munich</button>
                 <button identifiant="paris" type="button" class="btn btn-outline-primary mr-3 btn-md"
-                    onclick="infoCatalogue();">Paris</button>
+                    onmouseover="infoCatalogue();">Paris</button>
             </section>
 
             <!-- BOX VIGNETTE -->
@@ -47,8 +47,35 @@
             </section>
 
             <!-- BOX TITRE, PHOTO, COMMENTAIRES -->
+            <!-- PHOTO MODAL -->
             <section id="boxZoom" class="mt-4 col-12 col-md-8"></section>
 
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                MODAL
+            </button>
+            <!-- MODAL -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
 
         <script src="tools/bootstrap.min.js"></script>

@@ -1,0 +1,8 @@
+.myfont h2,h1{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Poiret One', cursive;
+}
+
+#containerImg{
+    height:800px;
+}

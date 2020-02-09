@@ -7,32 +7,28 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Poiret+One&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster|Old+Standard+TT|Teko&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="tools/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="stylePerso.css" type="text/css">
-    <link rel="stylesheet" href="animate.css" type="text/css">
+    <link rel="stylesheet" href="papillon.css" type="text/css">
     <link rel="stylesheet" href="fullSizeImg.css">
     <title>Picture Box</title>
 </head>
-<!-- style="border:1px solid red;" -->
 
 <body>
-    <div class="container">
-        <div class="row">
+    <main class="container">
+        <section class="row">
             <div class="fly">
                 <p></p>
                 <img src="img/pap.png" alt="">
             </div>
-
             <!--  BOX HEADER -->
             <header class="col-12 myfont">
                 <h2 class="text-center float-lg-left">MyPictureBox.fr</h2>
                 <h1 class="text-right float-lg-right">La PictureBox d'Eric</h1>
             </header>
-
             <!-- BOX CATALOGUE -->
-            <section class="col-12 mt-4 text-center d-flex justify-content-end flex-row">
+            <aside class="col-12 mt-4 text-center d-flex justify-content-end flex-row">
                 <button identifiant="venise" type="button" class="btn btn-outline-primary mr-3 btn-md"
                     onclick="infoCatalogue();">Venise</button>
                 <button identifiant="montreal" type="button" class="btn btn-outline-primary mr-3 btn-md"
@@ -45,43 +41,38 @@
                     onclick="infoCatalogue();">Moorea</button>
                 <button identifiant="harrisonSmith" type="button" class="btn btn-outline-success mr-3 btn-md"
                     onclick="infoCatalogue();">Jardin botanique</button>
-            </section>
-
+            </aside>
             <!-- BOX VIGNETTE -->
-            <section id="containerImg" class="col-12 col-md-4 mt-4 d-flex flex-row flex-md-column overflow-auto">
+            <aside id="containerImg" class="col-12 col-md-4 mt-4 d-flex flex-row flex-md-column overflow-auto">
                 <!-- Ajout code js -->
-            </section>
-
+            </aside>
             <!-- BOX TITRE, PHOTO, COMMENTAIRES -->
-            <section id="boxZoom" class="mt-4 col-12 col-md-8">
+            <aside id="boxZoom" class="mt-4 col-12 col-md-8">
                 <!-- Ajout code js -->
-            </section>
-
+            </aside>
             <!-- FULL SIZE IMAGE -->
             <div id="myModal" class="modal">
-
                 <!-- The Close Button -->
                 <span class="close">&times;</span>
-
                 <!-- Modal Content (The Image) -->
                 <img class="modal-content" id="img01">
-
                 <!-- Modal Caption (Image Text) -->
                 <!-- <div id="caption"></div> -->
             </div>
+        </section>
+    </main>
 
-        </div>
-
-        <script src="tools/bootstrap.min.js"></script>
-        <script src="tools/jquery.min.js"></script>
-        <script src="tools/popper.min.js"></script>
-
-        <script src="javascript.js"></script>
-        <script src="fullSizeImg.js"></script>
-
-        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <script src="javascript.js"></script>
+    <script src="fullSizeImg.js"></script>
 </body>
 
 </html>

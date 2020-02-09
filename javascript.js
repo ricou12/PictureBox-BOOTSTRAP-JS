@@ -25,6 +25,13 @@
 
 // mini base de donnée sous forme d'un tableau à 2 dimensions.
 var myDataBase = [{
+        'identifiant': 'paris',
+        'titre': 'Paris',
+        'commentaires': "<blockquote>Paris, capitale de la France, est une grande ville européenne et un centre mondial de l'art, de la mode, de la gastronomie et de la culture. Son paysage urbain du XIXe siècle est traversé par de larges boulevards et la Seine. Outre les monuments comme la tour Eiffel et la cathédrale gothique Notre-Dame du XIIe siècle, la ville est réputée pour ses cafés et ses boutiques de luxe bordant la rue du Faubourg-Saint-Honoré.</blockquote>",
+        'dossier_photo': 'img/paris/',
+        'files': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg'],
+    },
+    {
         'identifiant': 'venise',
         'titre': 'Venise la « Cité des Eaux »',
         'commentaires': "<blockquote>Venise (italien : Venezia /veˈnɛtʦja/, vénitien : Venexia /veˈnɛˑsja/) est une ville portuaire du nord-est de l'Italie, sur les rives de la mer Adriatique. Elle s'étend sur un ensemble de 121 petites îles séparées par un réseau de canaux et reliées par 435 ponts. Située au large de la lagune vénète, entre les estuaires du Pô et du Piave, Venise est renommée pour cette particularité, ainsi que pour son architecture et son patrimoine culturel — elle et sa lagune sont inscrites au patrimoine mondial de l'UNESCO.<br><br>Venise est la capitale de la région de la Vénétie. En 2012, la commune compte 269 810 habitants, dont 58 666 intra-muros (Centro storico). 176 000 résident sur les rives (Terraferma), pour la plupart dans les frazioni de Mestre et Marghera, et les 31 000 habitants restants résident dans d'autres îles de la lagune. Avec Padoue et Trévise, Venise constitue l'aire métropolitaine Padoue-Trévise-Venise (PATREVE), une entité statistique de 1 600 000 habitants.<br><br>Fondée peu après 528, elle fut la capitale pendant onze siècles (697-1797) de la République de Venise. Durant le Moyen Âge et la Renaissance, la ville fut une grande puissance maritime, à l'origine de la Quatrième croisade et victorieuse lors de la bataille de Lépante en 1571 contre l'Empire ottoman. Grâce à ses liens avec l'Asie et le Proche-Orient, dont le marchand et explorateur Marco Polo fut l'initiateur, elle devint également l'une des principales places commerciales d'Europe, notamment de la soie, des céréales et des épices. Enfin, elle est un centre culturel majeur, du XIIIe à la fin du XVIIe siècle, dont les peintres de l’École vénitienne (dont Titien, Véronèse et le Tintoret), Carlo Goldoni et Antonio Vivaldi sont les principaux représentants.</blockquote>",
@@ -44,13 +51,6 @@ var myDataBase = [{
         'commentaires': "<blockquote>Munich, capitale de la Bavière, abrite des bâtiments plusieurs fois centenaires et de nombreux musées. La ville est connue pour son Oktoberfest, une fête annuelle, et ses brasseries, dont la célèbre Hofbräuhaus, fondée en 1589. Dans l'Altstadt(vieille ville), la place centrale Marienplatz est cernée de monuments tels que le nouvel hôtel de ville, de style néo- gothique, orné d'un glockenspiel, attraction populaire qui sonne et s'anime avec des automates rejouant des scènes du XVIe siècle.</blockquote>",
         'dossier_photo': 'img/munich/',
         'files': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg'],
-    },
-    {
-        'identifiant': 'paris',
-        'titre': 'Paris',
-        'commentaires': "<blockquote>Paris, capitale de la France, est une grande ville européenne et un centre mondial de l'art, de la mode, de la gastronomie et de la culture. Son paysage urbain du XIXe siècle est traversé par de larges boulevards et la Seine. Outre les monuments comme la tour Eiffel et la cathédrale gothique Notre-Dame du XIIe siècle, la ville est réputée pour ses cafés et ses boutiques de luxe bordant la rue du Faubourg-Saint-Honoré.</blockquote>",
-        'dossier_photo': 'img/paris/',
-        'files': ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg'],
     },
     {
         'identifiant': 'harrisonSmith',
@@ -143,15 +143,13 @@ function createVignettesNewHTML(album) {
     for (const fileName of album.files) {
         const idx = myDataBase.indexOf(album);
         // Appel la fonction qui genere chaque balise html.
-        newHTML += createVignetteHTML(album.dossier_photo, fileName, album.titre, album.commentaires, idx);
+        newHTML += createVignetteHTML(album.dossier_photo, fileName, idx);
     }
     return newHTML;
 }
 
 // Génére une balise html
-function createVignetteHTML(dossierPhoto, fileName, titre, commentaires, albumIndex = -1) {
-    //methode n°1
-    // return '<img class="shadow p-1 mb-2 img-thumbnail rounded-pill" src="' + dossierPhoto + fileName + '" alt="" onclick="affichImg();">';
+function createVignetteHTML(dossierPhoto, fileName,albumIndex = -1) {
     //methode n°2
     return `<img class="vignette flex-md-shrink-0 shadow p-1 mb-1 img-thumbnail" 
                  src="${dossierPhoto}${fileName}" 
@@ -176,8 +174,8 @@ function setImg() {
     // RECUPERE L' INDEX DU TABLEAU 
     var albumIndex = $img.getAttribute("data-album-idx");
 
-    if(albumIndex && (new Number(albumIndex) > -1)){
-        var titre =  myDataBase[albumIndex].titre;
+    if (albumIndex && (new Number(albumIndex) > -1)) {
+        var titre = myDataBase[albumIndex].titre;
         var commentaires = myDataBase[albumIndex].commentaires;
         // CALL
         setImgInternal(imagePath, titre, commentaires);
@@ -197,5 +195,5 @@ function setImgInternal(imagePath, titre, commentaires) {
         // Cree les balises
         $boxZoom.innerHTML = newHTML;
     }
-    
+
 }

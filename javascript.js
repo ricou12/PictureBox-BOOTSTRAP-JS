@@ -77,7 +77,7 @@ var myDataBase = [{
  **************************************************************************************** */
 // Stocke dans des constantes, les ID de balise,
 // on pourra modifier, créer, supprimer des balises au niveau du fichier HTML via le DOM.
-const $vignettesContainer = document.getElementById("containerImg");
+const $vignettesContainer = document.getElementById("container_vignettes");
 const $boxZoom = document.getElementById("boxZoom");
 /** ************************************************************************************* */
 
@@ -151,11 +151,14 @@ function createVignettesNewHTML(album) {
 // Génére une balise html
 function createVignetteHTML(dossierPhoto, fileName,albumIndex = -1) {
     //methode n°2
-    return `<img class="vignette flex-md-shrink-0 shadow p-1 mb-1 img-thumbnail" 
-                 src="${dossierPhoto}${fileName}" 
-                 alt=""
-                 data-album-idx="${albumIndex}"
-                 onmouseover="setImg();">`;
+    return `
+        <img class="vignette flex-md-shrink-0 shadow p-1 mb-1 img-thumbnail" 
+            src="${dossierPhoto}${fileName}" 
+            alt=""
+            data-album-idx="${albumIndex}"
+            onmouseover="setImg();">
+        </div>
+            `;
 }
 
 // mise à jour de la balise.
@@ -189,7 +192,12 @@ function setImgInternal(imagePath, titre, commentaires) {
         // AJOUTE LE TITRE
         newHTML = `<h3>${titre}</h3>`;
         // AFFICHE LA PHOTO
-        newHTML += `<div class="d-block w-100 d-flex flex-row flex-wrap justify-content-center"><img id="myImg" class="d-block mw-100 shadow p-2 mb-3 bg-white rounded" src="${imagePath}" alt="" onclick="fullSize();"></div>`;
+        newHTML += `
+            <div class="container_photo_full_screen">
+                <div class="cadre_photo_full_screen">
+                    <img id="photo_full_screen" class="photo_full_screen" src="${imagePath}" alt="" onclick="fullSize();">
+                </div>
+            </div>`;
         // AJOUTE LES COMMENTAIRES
         newHTML += `<p>${commentaires}</p>`;
         // Cree les balises

@@ -22,34 +22,41 @@
                 <p></p>
                 <img src="img/pap.png" alt="">
             </div>
+
             <!--  BOX HEADER -->
-            <header class="col-12 myfont">
-                <h2 class="text-center float-lg-left">MyPictureBox.fr</h2>
-                <h1 class="text-right float-lg-right">La PictureBox d'Eric</h1>
+            <header class="col-8 offset-4 myfont pt-5 pr-5">
+                <!-- <h2 class="text-center float-lg-left">MyPictureBox.fr</h2> -->
+                <h1 class="text-right">La PictureBox d'Eric</h1>
             </header>
+
             <!-- BOX CATALOGUE -->
-            <aside class="col-12 mt-4 text-center d-flex justify-content-end flex-row">
-                <button identifiant="venise" type="button" class="btn btn-outline-primary mr-3 btn-md"
+            <section class="col-12 d-flex flex-row text-right justify-content-md-end overflow-auto mt-2">
+                <button identifiant="venise" type="button" class="btn btn-outline-primary my-2 mx-1"
                     onclick="infoCatalogue();">Venise</button>
-                <button identifiant="montreal" type="button" class="btn btn-outline-primary mr-3 btn-md"
+                <button identifiant="montreal" type="button" class="btn btn-outline-primary my-2 mx-1"
                     onclick="infoCatalogue();">Montreal</button>
-                <button identifiant="munich" type="button" class="btn btn-outline-primary mr-3 btn-md"
+                <button identifiant="munich" type="button" class="btn btn-outline-primary my-2 mx-1"
                     onclick="infoCatalogue();">Munich</button>
-                <button identifiant="paris" type="button" class="btn btn-outline-primary mr-3 btn-md"
+                <button identifiant="paris" type="button" class="btn btn-outline-primary my-2 mx-1"
                     onclick="infoCatalogue();">Paris</button>
-                <button identifiant="moorea" type="button" class="btn btn-outline-success mr-3 btn-md"
+                <button identifiant="moorea" type="button" class="btn btn-outline-success my-2 mx-1"
                     onclick="infoCatalogue();">Moorea</button>
-                <button identifiant="harrisonSmith" type="button" class="btn btn-outline-success mr-3 btn-md"
+                <button identifiant="harrisonSmith" type="button" class="btn btn-outline-success my-2 mx-1"
                     onclick="infoCatalogue();">Jardin botanique</button>
-            </aside>
+            </section>
+
             <!-- BOX VIGNETTE -->
-            <aside id="containerImg" class="col-12 col-md-4 mt-4 d-flex flex-row flex-md-column overflow-auto">
-                <!-- Ajout code js -->
-            </aside>
+            <section  class="col-12 col-md-4 cadre_vignettes mt-4 mt-md-0 mb-md-5 pt-md-4 pl-md-1 pr-0">
+                <div id="container_vignettes" class="d-flex flex-row flex-md-column overflow-auto">
+                    <!-- Ajout code js -->
+                </div>
+            </section>
+
             <!-- BOX TITRE, PHOTO, COMMENTAIRES -->
-            <aside id="boxZoom" class="mt-4 col-12 col-md-8">
+            <section id="boxZoom" class="col-12 col-md-8 mt-2">
                 <!-- Ajout code js -->
-            </aside>
+            </section>
+
             <!-- FULL SIZE IMAGE -->
             <div id="myModal" class="modal">
                 <!-- The Close Button -->

@@ -1,15 +1,4 @@
  /* Style the Image Used to Trigger the Modal */
- #myImg {
-     border-radius: 5px;
-     cursor: pointer;
-     transition: 0.3s;
- }
-
- #myImg:hover {
-     /* opacity: 0.8; */
-     -webkit-filter: grayscale();
-     filter: grayscale();
- }
 
  /* The Modal (background) */
  .modal {
@@ -19,7 +8,7 @@
      /* Stay in place */
      z-index: 1;
      /* Sit on top */
-     padding-top: 100px; /*100px*/
+     padding-top: 70px; 
      /* Location of the box */
      left: 0;
      top: 0;

@@ -6,7 +6,9 @@ body {
     z-index: 500;
     top: 20px;
     left: 20px;
-    width: 15%;
+    width: 10%;
+    min-width: 100px;
+    /* max-width: 300px; */
     white-space: nowrap;
     position: absolute;
     cursor: pointer;

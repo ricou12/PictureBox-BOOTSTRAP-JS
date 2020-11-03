@@ -4,22 +4,52 @@ h1 {
     font-family: 'Poiret One', cursive;
 }
 
-#containerImg {
-    max-height: 800px;
+
+#container_vignettes {
+    max-height:1000px;
+    margin-bottom: 20px;
+}
+
+.cadre_vignettes{
+    box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.6);
 }
 
 .vignette {
     min-height: 150px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 2s;
 }
 
 .vignette:hover {
     filter: hue-rotate(120deg);
     -webkit-filter:hue-rotate(120deg);
-    transform:scale(1.03);
+    transition: 2s;
 }
-#myImg{
-    max-height: 700px;
-    width:auto;
+
+.container_photo_full_screen{
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
 }
+
+.cadre_photo_full_screen{
+    overflow: hidden;
+}
+
+.photo_full_screen{
+    border-radius: 3px;
+    width: 100%;
+    cursor: pointer;
+    transition:5s;
+}
+
+.photo_full_screen:hover{
+    transform:scale(1.10);
+    transform-origin: top;
+}
+
+ button{
+    white-space:nowrap;
+ }
